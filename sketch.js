@@ -30,8 +30,8 @@ function draw() {
   textSize(50);
   textAlign(CENTER);
   text("YOUR ENERGY",width/2,height - 85);
-  rectMode(CENTER);
-  energy = rect(width/2,height-50,energy_max,30);
+  rectMode(CORNER);
+  energy = rect(width/2-100,height-50,energy_max,30);
 
   if (keyIsDown(UP_ARROW)) {
     character.position.y -= 3;

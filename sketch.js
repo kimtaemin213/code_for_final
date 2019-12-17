@@ -32,7 +32,6 @@ function setup() {
 function draw() {
   background(255);
   HP();
-  goal();
   drawSprites();
   lift();
   fill(0,0,0);
@@ -102,18 +101,21 @@ function lift() {
     obj.position.x = character.position.x -10;
     obj.position.y = character.position.y;
   }
+  function reset()
+  {
+    if(obj.overlap(purpose)) {
+      text("level up",width/2,height+100);
+      textSize(40);
 
-}
-
-function goal() {
-  if(obj.position.x < purpose.position.x-100 && obj.position.x > purpose.position.x+100 && obj.position.y < purpose.position.y-100 && obj.position.y > purpose.position.y+100   ) {
-    text("level up ", width/2,height+50);
-    textSize(40);
+    }
 
   }
 
-
 }
+
+
+
+
 
 
 

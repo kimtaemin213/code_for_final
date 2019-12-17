@@ -7,6 +7,8 @@ let obj_posX,obj_posY;
 let energy;
 let energy_max = 200;
 let push = false;
+let purpose;
+let purpose_posx,purpose_posy,purpose_sizex,purpose_sizey;
 
 
 function setup() {
@@ -17,13 +19,20 @@ function setup() {
   obj_posX = 120;
   obj_posY = random(0,800);
   sprite_x  = 20;
+  purpose_posx=random(0,1280);
+  purpose_posy =random(0,800);
+  purpose_sizex = 200;
+  purpose_sizey = 200;
+
   show();
+
 
 }
 
 function draw() {
   background(255);
   HP();
+  goal();
   drawSprites();
   lift();
   fill(0,0,0);
@@ -53,6 +62,8 @@ function show() {
   character =createSprite(character_posX,character_posY,50,50);
   character.shapeColor="black";
   obj =createSprite(obj_posX,obj_posY,50,50);
+  purpose = createSprite(purpose_posx,purpose_posy,purpose_sizex,purpose_sizey);
+
 }
 
 function HP() {
@@ -94,11 +105,15 @@ function lift() {
 
 }
 
- function goal() {
+function goal() {
+  if(obj.position.x < purpose.position.x-100 && obj.position.x > purpose.position.x+100 && obj.position.y < purpose.position.y-100 && obj.position.y > purpose.position.y+100   ) {
+    text("level up ", width/2,height+50);
+    textSize(40);
+
+  }
 
 
-
- }
+}
 
 
 

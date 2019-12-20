@@ -33,6 +33,7 @@ function draw() {
   background(255);
   HP();
   drawSprites();
+  reset();
   lift();
   fill(0,0,0);
   textSize(50);
@@ -101,15 +102,17 @@ function lift() {
     obj.position.x = character.position.x -10;
     obj.position.y = character.position.y;
   }
+
+
+  }
   function reset()
   {
-    if(obj.overlap(purpose)) {
+    if(purpose.overlap(obj) && !keyIsDown(32)) {
       text("level up",width/2,height+100);
       textSize(40);
 
     }
 
-  }
 
 }
 
